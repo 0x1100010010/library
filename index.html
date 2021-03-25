@@ -24,6 +24,7 @@
       <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <!-- Replace with your content -->
         <div class="px-4 py-6 sm:px-0 grid grid-cols-3 gap-7">
+
           <section class="border-4 border-dashed border-gray-200 rounded-lg p-2">
             <form name="newRecordForm" id="newRecordForm">
               <div class="shadow sm:rounded-md sm:overflow-hidden">
@@ -35,7 +36,7 @@
                     </span>
                     <input type="text" name="title" id="title"
                       class="p-2 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                      placeholder=" Book Title">
+                      placeholder=" Book Title" required>
                   </div>
                   <div class="mt-1 flex rounded-md shadow-sm">
                     <span
@@ -44,27 +45,27 @@
                     </span>
                     <input type="text" name="author" id="author"
                       class="p-2 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                      placeholder=" Book Author">
+                      placeholder=" Book Author" required>
                   </div>
                   <div class="mt-1 flex rounded-md shadow-sm">
                     <span
                       class="w-1/5 inline-flex items-center p-2 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
                       Pages
                     </span>
-                    <input type="text" name="pages" id="pages"
+                    <input type="number" name="pages" id="pages"
                       class="p-2 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                      placeholder=" Book Pages">
+                      placeholder=" Book Pages" required>
                   </div>
                   <div class="flex items-start">
                     <div class="flex items-center h-5">
-                      <input id="status" name="status" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                      <input id="status" name="status" type="checkbox"
+                        class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                     </div>
                     <div class="ml-3 text-sm">
                       <label for="status" class="font-medium text-gray-700">Read Status</label>
                     </div>
                   </div>
-
-
+                
                   <button type="submit" value="Send"
                     class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full">
                     Add

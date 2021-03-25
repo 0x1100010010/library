@@ -60,8 +60,16 @@ function addRecord(e) {
   );
   console.log(newBook)
   myLibrary.push(newBook);
+  resetFields(formElements);
   console.log(myLibrary)
   renderLibrary();
+}
+
+const resetFields = (e) => {
+  e.title.value = '';
+  e.author.value = '';
+  e.pages.value = null;
+  e.status.checked = false;
 }
 
 function dropRecord(index) {
