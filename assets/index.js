@@ -78,6 +78,11 @@ const statusToggle = (index) => {
   renderLibrary();
 }
 
+const renderForm = () => {
+  let x = document.getElementById('newRecordForm').style.display
+  document.getElementById('newRecordForm').style.display = ( (x == "none") ? "block" : "none");
+}
+
 console.log(document.getElementById('newRecordForm'))
 document.getElementById('newRecordForm').addEventListener('submit', addBookToLibrary);
 
