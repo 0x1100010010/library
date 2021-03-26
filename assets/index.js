@@ -28,27 +28,7 @@ function Book(title, author, pages, status) {
   this.status = status
 }
 
-function addBookToLibrary() {
-  
-}
-
-function renderLibrary () {
-  let entries = "";
-  let i = 0;
-  myLibrary.forEach( 
-    record => { 
-      entries += `<tr><td class="px-6 py-4 whitespace-nowrap"><div class="text-sm text-gray-500">${record.title}</div></td>`
-      entries += `<td class="px-6 py-4 whitespace-nowrap"><div class="text-sm text-gray-500">${record.author}</div></td>`
-      entries += `<td class="px-6 py-4 whitespace-nowrap"><div class="text-sm text-gray-500">${record.pages}</div></td>`
-      entries += `<td class="px-6 py-4 whitespace-nowrap text-center"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">${record.status}</span></td>`
-      entries += `<td class="px-6 py-4 whitespace-nowrap text-center"><button onclick="dropRecord(${i})" class="bg-transparent hover:bg-red-500 text-red-700 hover:text-white px-4 border border-red-500 hover:border-transparent rounded">Drop</button></td></tr>`
-      i++;
-    }
-  );
-  document.getElementById('library-entries').innerHTML = entries;
-}
-
-function addRecord(e) {
+const addBookToLibrary = (e) => {
   e.preventDefault();
   const formElements = e.target.elements;
   console.log(formElements)
@@ -65,6 +45,22 @@ function addRecord(e) {
   renderLibrary();
 }
 
+const renderLibrary = () => {
+  let entries = "";
+  let i = 0;
+  myLibrary.forEach( 
+    record => { 
+      entries += `<tr><td class="px-6 py-4 whitespace-nowrap"><div class="text-sm text-gray-500">${record.title}</div></td>`
+      entries += `<td class="px-6 py-4 whitespace-nowrap"><div class="text-sm text-gray-500">${record.author}</div></td>`
+      entries += `<td class="px-6 py-4 whitespace-nowrap"><div class="text-sm text-gray-500">${record.pages}</div></td>`
+      entries += `<td class="px-6 py-4 whitespace-nowrap text-center"><button onclick="statusToggle(${i})" class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">${record.status}</button></td>`
+      entries += `<td class="px-6 py-4 whitespace-nowrap text-center"><button onclick="dropRecord(${i})" class="bg-transparent hover:bg-red-500 text-red-700 hover:text-white px-4 border border-red-500 hover:border-transparent rounded">Drop</button></td></tr>`
+      i++;
+    }
+  );
+  document.getElementById('library-entries').innerHTML = entries;
+}
+
 const resetFields = (e) => {
   e.title.value = '';
   e.author.value = '';
@@ -72,12 +68,17 @@ const resetFields = (e) => {
   e.status.checked = false;
 }
 
-function dropRecord(index) {
+const dropRecord = (index) => {
   console.log(myLibrary.splice(index, 1))
   renderLibrary();
 }
 
+const statusToggle = (index) => {
+  myLibrary[index].status = !myLibrary[index].status
+  renderLibrary();
+}
+
 console.log(document.getElementById('newRecordForm'))
-document.getElementById('newRecordForm').addEventListener('submit', addRecord);
+document.getElementById('newRecordForm').addEventListener('submit', addBookToLibrary);
 
 renderLibrary();
