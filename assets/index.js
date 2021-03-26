@@ -53,7 +53,7 @@ const renderLibrary = () => {
       entries += `<tr><td class="px-6 py-4 whitespace-nowrap"><div class="text-sm text-gray-500">${record.title}</div></td>`
       entries += `<td class="px-6 py-4 whitespace-nowrap"><div class="text-sm text-gray-500">${record.author}</div></td>`
       entries += `<td class="px-6 py-4 whitespace-nowrap"><div class="text-sm text-gray-500">${record.pages}</div></td>`
-      entries += `<td class="px-6 py-4 whitespace-nowrap text-center"><button onclick="statusToggle(${i})" class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">${record.status}</button></td>`
+      entries += `<td class="px-6 py-4 whitespace-nowrap text-center"><button onclick="statusToggle(${i})" class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">${record.status ? "Read" : "Unread"}</button></td>`
       entries += `<td class="px-6 py-4 whitespace-nowrap text-center"><button onclick="dropRecord(${i})" class="bg-transparent hover:bg-red-500 text-red-700 hover:text-white px-4 border border-red-500 hover:border-transparent rounded">Drop</button></td></tr>`
       i++;
     }
